@@ -13,23 +13,25 @@ function Banner() {
     const [countries, setCountries] = useState(0);
 
     useEffect(() => {
-        const duration = 6000; 
-        const steps = 100; 
-        const intervalTime = duration / steps; // Time per step
-
-        let step = 0;
-        const interval = setInterval(() => {
-            step++;
-
-            setBuyers(Math.ceil((targetNumbers.buyers / steps) * step));
-            setSuppliers(Math.ceil((targetNumbers.suppliers / steps) * step));
-            setCountries(Math.ceil((targetNumbers.countries / steps) * step));
-
-            if (step >= steps) clearInterval(interval);
-        }, intervalTime);
-
-        return () => clearInterval(interval); 
+        const duration = 3000; 
+        const startTime = performance.now();
+    
+        function updateNumbers(currentTime) {
+            const elapsedTime = currentTime - startTime;
+            const progress = Math.min(elapsedTime / duration, 1); 
+    
+            setBuyers(Math.floor(progress * targetNumbers.buyers));
+            setSuppliers(Math.floor(progress * targetNumbers.suppliers));
+            setCountries(Math.floor(progress * targetNumbers.countries));
+    
+            if (progress < 1) {
+                requestAnimationFrame(updateNumbers); 
+            }
+        }
+    
+        requestAnimationFrame(updateNumbers);
     }, []);
+    
 
     return (
         <div className='h-[500px] bg-[url("/banner.png")] bg-cover bg-center'>
