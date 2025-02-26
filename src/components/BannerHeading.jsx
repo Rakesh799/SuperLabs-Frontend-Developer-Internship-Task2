@@ -9,7 +9,7 @@ function BannerHeading() {
       <div className='md:max-w-[1320px] mx-auto w-full flex flex-col md:flex-row pb-28'>
         <div className="md:w-1/2 px-3">
           <iframe
-            className="w-full h-[370px]"
+            className="w-full md:h-[370px] h-[189px]"
             src="https://www.youtube.com/embed/TN7iJyc5Uks"
             title="YouTube Video"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

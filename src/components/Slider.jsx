@@ -62,7 +62,7 @@ const Slider = () => {
         >
           {sliderData.map((slide) => (
             <SwiperSlide key={slide.id} className="bg-white p-6 rounded-lg shadow-lg">
-              <div className="flex flex-col md:flex-row h-[600px]">
+              <div className="flex flex-col md:flex-row md:h-[600px]">
                 <div className="w-full md:w-[40%] p-4 pt-28">
                   <i className="text-6xl text-red-500 mb-4">❝</i>
                   <p className="text-black text-[17px]">{slide.text}</p>
@@ -71,7 +71,7 @@ const Slider = () => {
                   <img
                     src={slide.img}
                     alt="1mdm-product"
-                    className="w-[800px] rounded-lg bg-cover bg-center"
+                    className="md:w-[800px] rounded-lg bg-cover bg-center"
                   />
                 </div>
               </div>

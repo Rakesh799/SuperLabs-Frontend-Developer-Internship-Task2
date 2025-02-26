@@ -2,7 +2,7 @@ import React from 'react'
 
 function FooterBanner() {
     return (
-        <div className='bg-[url("/footer-banner.png")] h-[370px] bg-center bg-cover'>
+        <div className='bg-[url("/footer-banner.png")] h-[370px] bg-center bg-cover md:mt-0'>
 
             <h1 className='text-[32px] font-medium text-center text-white pt-28'>Ready to Grow Your Business?</h1>
 
