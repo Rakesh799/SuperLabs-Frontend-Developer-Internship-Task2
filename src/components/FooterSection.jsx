@@ -5,7 +5,7 @@ import logowhite from '../assets/logowhite.png'
 function FooterSection() {
   return (
     <div className='bg-black text-white'>
-      <div className='md:max-w-[1320px] mx-auto py-16 flex flex-col md:flex-row'>
+      <div className='md:max-w-[1320px] mx-auto py-16 pl-2 flex flex-col md:flex-row'>
 
         <div className='md:w-[45%]'>
           <img src={logowhite} alt="1mdm Logo" />
