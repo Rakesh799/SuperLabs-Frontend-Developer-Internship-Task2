@@ -1,4 +1,6 @@
 import './App.css'
+import Banner from './components/Banner'
+import BannerHeading from './components/BannerHeading'
 import MenuBar from './components/MenuBar'
 import TopSection from './components/TopSection'
 
@@ -8,6 +10,8 @@ function App() {
     <>
       <TopSection />
       <MenuBar />
+      <Banner/>
+      <BannerHeading/>
     </>
   )
 }
