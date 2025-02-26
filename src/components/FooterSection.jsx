@@ -5,15 +5,15 @@ import logowhite from '../assets/logowhite.png'
 function FooterSection() {
   return (
     <div className='bg-black text-white'>
-      <div className='max-w-[1320px] mx-auto py-16 flex flex-row'>
+      <div className='md:max-w-[1320px] mx-auto py-16 flex flex-col md:flex-row'>
 
-        <div className='w-[45%]'>
+        <div className='md:w-[45%]'>
           <img src={logowhite} alt="1mdm Logo" />
           <h5 className='text-[#BBBBBB] py-6'>One Medical Devicesbr <br />
             Market Place</h5>
         </div>
 
-        <div className="w-[55%] flex flex-row">
+        <div className="md:w-[55%] flex flex-row">
           <div className="w-1/3">
             <ul className='text-[#BBBBBB] text-[16px]'>
               <h5 className='text-white font-bold text-[20px] pb-4'>Platform</h5>

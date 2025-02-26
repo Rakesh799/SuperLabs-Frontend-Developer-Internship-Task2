@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import SwiperCore from "swiper";
+
+// Ensure SwiperCore recognizes Navigation
+SwiperCore.use([Navigation]);
 
 const sliderData = [
   {
@@ -29,10 +34,17 @@ const sliderData = [
 ];
 
 const Slider = () => {
+  useEffect(() => {
+    // Ensure Swiper re-initializes with custom buttons
+    const swiperInstance = document.querySelector(".swiper").swiper;
+    swiperInstance?.navigation.init();
+    swiperInstance?.navigation.update();
+  }, []);
+
   return (
-    <div className="py-10 bg-gray-100">
-      <div className="container max-w-[1320px] mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl font-semibold text-center mb-6">
+    <div className="py-10 bg-gray-100 relative">
+      <div className="container max-w-[1320px] mx-auto">
+        <h2 className="text-2xl md:text-3xl font-semibold text-center mb-6 text-[#a10005]">
           Success stories from 1mdm.com sellers
         </h2>
 
@@ -40,25 +52,41 @@ const Slider = () => {
           modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={20}
           slidesPerView={1}
-          navigation
+          navigation={{
+            nextEl: ".custom-next",
+            prevEl: ".custom-prev",
+          }}
           pagination={{ clickable: true }}
           autoplay={{ delay: 3000 }}
           className="w-full"
         >
           {sliderData.map((slide) => (
             <SwiperSlide key={slide.id} className="bg-white p-6 rounded-lg shadow-lg">
-              <div className="flex h-[600px]">
+              <div className="flex flex-col md:flex-row h-[600px]">
                 <div className="w-full md:w-[40%] p-4 pt-28">
                   <i className="text-6xl text-red-500 mb-4">❝</i>
                   <p className="text-black text-[17px]">{slide.text}</p>
                 </div>
                 <div className="md:w-[60%] flex justify-center">
-                  <img src={slide.img} alt="1mdm-product" className="w-[800px] rounded-lg bg-cover bg-center" />
+                  <img
+                    src={slide.img}
+                    alt="1mdm-product"
+                    className="w-[800px] rounded-lg bg-cover bg-center"
+                  />
                 </div>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
+
+        {/* Custom Navigation Buttons */}
+        <button className="custom-prev absolute left-4 md:left-10 top-1/2 transform -translate-y-1/2 w-12 h-12 flex items-center justify-center bg-red-500 text-white rounded-full shadow-lg hover:bg-red-600 transition z-50">
+          <ChevronLeft className="w-6 h-6" />
+        </button>
+
+        <button className="custom-next absolute right-4 md:right-10 top-1/2 transform -translate-y-1/2 w-12 h-12 flex items-center justify-center bg-red-500 text-white rounded-full shadow-lg hover:bg-red-600 transition z-50">
+          <ChevronRight className="w-6 h-6" />
+        </button>
       </div>
     </div>
   );
