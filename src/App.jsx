@@ -9,6 +9,7 @@ import Tabs from './components/Tabs'
 import TopSection from './components/TopSection'
 import FooterSection from './components/FooterSection'
 import Copyright from './components/Copyright'
+import FloatingButtons from './components/FloatingButtons'
 
 function App() {
 
@@ -20,10 +21,11 @@ function App() {
       <BannerHeading />
       <Check />
       <Tabs />
-      <Slider/>
-      <FooterBanner/>
-      <FooterSection/>
-      <Copyright/>
+      <Slider />
+      <FooterBanner />
+      <FooterSection />
+      <FloatingButtons />
+      <Copyright />
 
     </>
   )
